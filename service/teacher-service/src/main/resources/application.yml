@@ -10,7 +10,14 @@ spring:
     password: root
     url: jdbc:mysql://localhost:3306/online_education?serverTimezone=GMT%2B8
 
+  #Json返回时间格式
+  jackson:
+    serialization: {write-dates-as-timestamps: false}
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
 # mybatis-plus 日志打印
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+

@@ -1,19 +1,19 @@
 package com.edu.teacherservice.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
-import java.time.LocalDateTime;
 import com.baomidou.mybatisplus.annotation.TableId;
-import java.io.Serializable;
+import com.baomidou.mybatisplus.annotation.TableLogic;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
+import java.io.Serializable;
+import java.time.LocalDateTime;
+
 /**
- * <p>
- * 讲师
- * </p>
+ *  讲师实体类
  *
  *
  * @author pengwei
@@ -22,14 +22,14 @@ import lombok.experimental.Accessors;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@ApiModel(value="EduTeacher对象", description="讲师")
+@ApiModel(value = "EduTeacher对象", description = "讲师")
 public class EduTeacher implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @ApiModelProperty(value = "讲师ID")
     @TableId(value = "id", type = IdType.ID_WORKER)
-    private String id;
+    private Long id;
 
     @ApiModelProperty(value = "讲师姓名")
     private String name;
@@ -50,6 +50,7 @@ public class EduTeacher implements Serializable {
     private Integer sort;
 
     @ApiModelProperty(value = "逻辑删除 1（true）已删除， 0（false）未删除")
+    @TableLogic //逻辑删除
     private Integer isDeleted;
 
     @ApiModelProperty(value = "创建时间")
